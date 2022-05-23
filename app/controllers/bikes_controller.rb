@@ -1,6 +1,5 @@
 class BikesController < ApplicationController
-
-  def home
+  def index
     @bikes = Bike.all
   end
 
@@ -27,6 +26,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:user_id, :name, :image, :size, :category, :available)
+    params.require(:bike).permit(:user_id, :name, :image_url, :size, :category, :available)
   end
 end
