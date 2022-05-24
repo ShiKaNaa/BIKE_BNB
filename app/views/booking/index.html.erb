@@ -1,0 +1,17 @@
+<h1>My bookings</h1>
+
+<div class ='container'>
+
+  <ul>
+    <% @bookings.each do |booking| %>
+    <li>
+      <div><%= booking.user_id %></div>
+      <div><%= booking.bike.id %></div>
+      <div><%= booking.start_date %></div>
+      <div><%= booking.end_date %></div>
+      <div><%= booking.status %></div>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
