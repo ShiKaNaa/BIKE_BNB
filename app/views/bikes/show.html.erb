@@ -2,4 +2,9 @@
   <%= @bike.name %>
 </div>
 
+
+<% if policy(@bike).destroy? %>
+  <%= link_to "Delete", bikes_path %>
+<% end %>
+
 <%# afficher name img_url size category owner (bike.user.firstname + bike.user.firstname)  %>
