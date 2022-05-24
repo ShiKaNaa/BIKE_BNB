@@ -6,8 +6,7 @@
     <% @bikes.each do |bike|  %>
     <%# bootstrap card %>
     <div class="card m-3" style="width: 18rem;">
-      <%# La photo ne s'affiche pas %>
-      <img src="<%= bike.photo.key %>" class="card-img-top" alt="...">
+      <%= cl_image_tag bike.photo.key, class: "card-img-top"%>
       <div class="card-body">
         <h5 class="card-title"><%= bike.name %></h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -20,5 +19,3 @@
 
   <%=  link_to "Add a new bike advert", new_bike_path, class: "btn btn-primary" %>
 </div>
-
-<%= console %>
