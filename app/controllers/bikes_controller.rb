@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   def index
-    @bikes = Bike.all
+    @bikes = policy_scope(Bike).order(created_at: :desc)
   end
 
   def my_bikes
