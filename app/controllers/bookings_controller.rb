@@ -1,23 +1,19 @@
-class BookingController < ApplicationController
-  def index
-    @bookings = Booking.all
-  end
+class BookingsController < ApplicationController
 
-  def show
-    @booking = Booking.find(params[:id])
+  def index
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def new
     @booking = Booking.new
-  end
-
-  def my_bookings
+    # Faire une dépendance de bikes :id
   end
 
   def create
   end
 
-  def edit
+  def update
+    # Accept ou Decline to change status
   end
 
 
