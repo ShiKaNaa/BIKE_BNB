@@ -18,6 +18,7 @@ class BikesController < ApplicationController
   end
 
   def create
+    redirect_to bikes_path
   end
 
   def edit
@@ -36,6 +37,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:user_id, :name, :img_url, :size, :category, :available)
+    params.require(:bike).permit(:user_id, :name, :img_url, :size, :category, :available, :price)
   end
 end
