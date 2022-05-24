@@ -4,7 +4,7 @@ class BikesController < ApplicationController
   end
 
   def my_bikes
-
+    # @my_bikes = Bike.where()
   end
 
   def show

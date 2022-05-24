@@ -9,4 +9,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<%= link_to "See all bikes", bikes_path %>
+<div class="container d-flex justify-content-center gap-3">
+  <%= link_to "Bike rental", bikes_path, class: "btn btn-gradient btn-lg" %>
+
+  <%= link_to "My bookings", bikes_path, class: "btn btn-flat btn-lg" %>
+
+  <%= link_to "My bikes", bikes_path, class: "btn btn-warning btn-lg" %>
+</div>
