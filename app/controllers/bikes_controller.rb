@@ -18,8 +18,14 @@ class BikesController < ApplicationController
   end
 
   def create
+    @bike = Bike.new(bike_params)
+    @bike.user = current_user
+    if @bike.save
+      redirect_to bikes_path, notice: 'Bike advert was successfully created.'
+    else
+      render :new
+    end
     authorize @bike
-    redirect_to bikes_path
   end
 
   def edit
