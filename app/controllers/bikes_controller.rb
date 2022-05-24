@@ -21,12 +21,16 @@ class BikesController < ApplicationController
   end
 
   def edit
+    @bike = Bike.find(params[:id])
+    authorize @bike
   end
 
   def update
+
   end
 
   def destroy
+    authorize @bike
   end
 
   private
