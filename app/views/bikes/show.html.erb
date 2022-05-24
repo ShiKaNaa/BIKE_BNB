@@ -1,10 +1,12 @@
 <div class="container d-flex justify-content-center">
   <%= @bike.name %>
+  <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if policy(@bike).destroy? %>
+  <%= link_to "Delete", bikes_path %>
+  <% end %>
 </div>
 
 
-<% if policy(@bike).destroy? %>
-  <%= link_to "Delete", bikes_path %>
-<% end %>
+
 
 <%# afficher name img_url size category owner (bike.user.firstname + bike.user.firstname)  %>

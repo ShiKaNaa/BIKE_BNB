@@ -7,7 +7,7 @@
     <%= f.input :name %>
     <%= f.input :size, collection: Bike::SIZE %>
     <%= f.input :category, collection: Bike::CATEGORY %>
-    <%= f.input :img_url, as: :file %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :price, as: :numeric %>
     <%= f.submit "Submit bike add", class: "btn btn-primary" %>
   <% end %>
