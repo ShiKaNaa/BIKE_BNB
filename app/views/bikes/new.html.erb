@@ -1,1 +1,16 @@
-<h1>I'm in the new bike view</h1>
+<div class="container">
+  <h1>I'm in the new bike view</h1>
+
+  <%= simple_form_for (@bike) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit "Submit bike add", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+<%# name
+img_url
+size
+category
+available
+user_id(user) %>
