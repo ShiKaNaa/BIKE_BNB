@@ -1,8 +1,13 @@
 <div class="container">
-  <h1>I'm in the new bike view</h1>
+  <h1>Please enter info about you new bike advert</h1>
 
+  <%# Ajouter le current user pour savoir à qui appartient le velo %>
+  <%# <%= simple_form_for [@user, @bike] do |f| %>
   <%= simple_form_for (@bike) do |f| %>
     <%= f.input :name %>
+    <%= f.input :size, collection: Bike::SIZE %>
+    <%= f.input :category, collection: Bike::CATEGORY %>
+    <%= f.input :img_url, as: :file %>
     <%= f.submit "Submit bike add", class: "btn btn-primary" %>
   <% end %>
 </div>
@@ -12,5 +17,4 @@
 img_url
 size
 category
-available
 user_id(user) %>

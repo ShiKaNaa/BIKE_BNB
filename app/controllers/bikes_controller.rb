@@ -18,6 +18,7 @@ class BikesController < ApplicationController
   end
 
   def create
+    authorize @bike
     redirect_to bikes_path
   end
 
