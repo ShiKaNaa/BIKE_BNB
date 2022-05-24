@@ -10,6 +10,15 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    @booking.user_id = current_user
+    @booking.status = false
+      if @booking.save
+        redirect_to bikes_path, notice: 'Your request has been sent, please wait for the confirmation'
+      else
+        render :new
+      end
+    authorize @booking
   end
 
   def update
