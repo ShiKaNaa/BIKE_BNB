@@ -1,16 +1,20 @@
 <h1>All bikes</h1>
 
 <div class="container">
-  <% @bikes.each do |bike|  %>
-  <%# bootstrap card %>
-  <div class="card" style="width: 18rem;">
-    <img src="<%= bike.img_url %>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= bike.name %></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <%# faire un path_to show/id %>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+
+  <div class="cards row">
+    <% @bikes.each do |bike|  %>
+    <%# bootstrap card %>
+    <div class="card m-3" style="width: 18rem;">
+      <img src="<%= bike.img_url %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= bike.name %></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <%# faire un path_to show/id %>
+        <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+        <%=  link_to "See this bikes", bike_path(bike.id), class: "btn btn-primary" %>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
