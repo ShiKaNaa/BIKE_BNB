@@ -1,6 +1,9 @@
 <h1>I'm in the edit view</h1>
-
-
-<% if policy(@bike).edit? %>
-  <%= link_to "Update", edit_bike_path(@bike) %>
-<% end %>
+  <%= simple_form_for (@bike) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price, as: :numeric %>
+    <%= f.input :size, collection: Bike::SIZE %>
+    <%= f.input :category, collection: Bike::CATEGORY %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Change bike add", class: "btn btn-primary" %>
+  <% end %>
