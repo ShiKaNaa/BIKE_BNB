@@ -1,36 +1,46 @@
 <div class ='container'>
 
-  <h1>My bookings</h1>
+  <h1 class="row justify-content-center padding-6">My Bookings</h1>
+  <h2 class="row justify-content-center padding-6">This is where you can see and updates your bookings. Have a look!</h2>
 
 
   <% if @bookings != [] %>
 
+  <div class="cards row justify-content-around">
     <%# booking locataire %>
     <% @bookings.each do |booking| %>
-      <div class="card">
-        <%= booking.comment %>
-        <%= booking.start_date %>
-        <%= booking.end_date %>
-        <%= booking.status %>
+     <div class="card col-4" style="width: 350px;">
+      <div class="card-body">
+        <h5 class="card-title"><%= booking.comment %></h5>
+         <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date %> to <%= booking.end_date %></h6>
+        <p class="card-text">Status : <%= booking.status %></p>
       </div>
+       </div>
     <% end %>
 
     <%# booking propriétaire %>
     <% @my_bookings.each do |booking| %>
-      <div class="card">
-        <%= booking.comment %>
-        <%= booking.start_date %>
-        <%= booking.end_date %>
-        <%= booking.status %>
-          <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
-          <%= link_to "Decline", decline_booking_path(booking), method: :patch %>
+    <div class="card col-4" style="width: 350px;">
+      <div class="card-body">
+        <h5 class="card-title"><%= booking.comment %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date %> to <%= booking.end_date %></h6>
+        <p class="card-text">Status : <%= booking.status %></p>
+          <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "card-link" %>
+          <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "card-link" %>
+      </div>
       </div>
     <% end %>
+  </div>
+
 
 
   <% else %>
-    <p>You don't have booking</p>
 
+    <div class="card">
+      <div class="card-body">
+        Oops... You don't have any bookings for now.
+      </div>
+    </div>
   <% end %>
 
 </div>

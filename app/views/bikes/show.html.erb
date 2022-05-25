@@ -1,17 +1,21 @@
-<div class="container d-flex justify-content-center">
-  <%= @bike.name %>
-  <% if @bike.photo.attached? %>
-        <%= cl_image_tag @bike.photo.key, class: "card-img-top"%>
-  <% else %>
-    <img src="<%= @bike.img_url %>" class="card-img-top" alt="...">
-  <% end %>
-  <%= @bike.category %>
-  <%= @bike.price %>
-  <% if policy(@bike).destroy? %>
-  <%= link_to "Delete", bikes_path %>
-  <% end %>
+<div class="container" width="300px">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8">
+      <h2><%= @bike.name %></h2>
+      <% if @bike.photo.attached? %>
+            <%= cl_image_tag @bike.photo.key, class: "card-img-top"%>
+      <% else %>
+        <img src="<%= @bike.img_url %>" class="card-img-top" width ="250px">
+      <% end %>
+      <h3>Category : <%= @bike.category %></h3>
+      <h3>Price: <%= @bike.price %>€</h3>
+      <% if policy(@bike).destroy? %>
+      <h4><%= link_to "Delete", bikes_path %></h4>
+      <% end %>
 
-  <%= link_to "Edit", bikes_path %>
+      <h4><%= link_to "Edit", bikes_path %></h4>
+    </div>
+  </div>
 </div>
 
 <%# afficher name img_url size category owner (bike.user.firstname + bike.user.firstname)  %>
