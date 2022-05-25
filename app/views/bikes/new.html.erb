@@ -1,8 +1,6 @@
 <div class="container">
   <h1>Please enter info about you new bike advert</h1>
 
-  <%# Ajouter le current user pour savoir à qui appartient le velo %>
-  <%# <%= simple_form_for [@user, @bike] do |f| %>
   <%= simple_form_for (@bike) do |f| %>
     <%= f.input :name %>
     <%= f.input :size, collection: Bike::SIZE %>
@@ -12,4 +10,3 @@
     <%= f.submit "Submit bike add", class: "btn btn-primary" %>
   <% end %>
 </div>
-
