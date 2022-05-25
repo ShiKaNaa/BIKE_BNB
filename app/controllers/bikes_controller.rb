@@ -4,7 +4,7 @@ class BikesController < ApplicationController
   end
 
   def my_bikes
-
+    # @my_bikes = Bike.where()
   end
 
   def show
@@ -44,6 +44,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:user_id, :name, :img_url, :size, :category, :available, :price)
+    params.require(:bike).permit(:user_id, :name, :img_url, :size, :category, :available, :price, :photo)
   end
 end
