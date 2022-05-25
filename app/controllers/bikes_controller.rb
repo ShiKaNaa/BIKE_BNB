@@ -4,7 +4,8 @@ class BikesController < ApplicationController
   end
 
   def my_bikes
-    # @my_bikes = Bike.where()
+    @my_bikes = Bike.where(user_id: current_user.id)
+    authorize @my_bikes
   end
 
   def show
