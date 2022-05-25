@@ -39,7 +39,10 @@ class BikesController < ApplicationController
   end
 
   def destroy
+    @bike = Bike.find(params[:id])
     authorize @bike
+    @bike.destroy
+    redirect_to my_bikes_path, notice: 'Bike was successfully destroyed.'
   end
 
   private
