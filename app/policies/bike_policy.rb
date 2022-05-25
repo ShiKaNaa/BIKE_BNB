@@ -6,6 +6,10 @@ class BikePolicy < ApplicationPolicy
     end
   end
 
+  def my_bikes?
+    return true
+  end
+
   def create?
     return true
   end
@@ -23,5 +27,4 @@ class BikePolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
-
 end
