@@ -4,25 +4,26 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
-
-  def index
-    @bookings = policy_scope(Booking).order(created_at: :desc)
-  end
-
   def new
     @booking = Booking.new
+    @bike = Bike.find(params[:bike_id])
+    authorize @booking
     # Faire une dépendance de bikes :id
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user
+    @bike = Bike.find(params[:bike_id])
+    @user = current_user
+    @booking.bike = @bike
+    @booking.user = @user
     @booking.status = false
-      if @booking.save
-        redirect_to bikes_path, notice: 'Your request has been sent, please wait for the confirmation'
-      else
-        render :new
-      end
+
+    if @booking.save!
+      redirect_to bookings_path, notice: 'Your request has been sent, please wait for the confirmation'
+    else
+      render :new
+    end
     authorize @booking
   end
 

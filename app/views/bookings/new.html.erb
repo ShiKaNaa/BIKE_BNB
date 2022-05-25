@@ -4,7 +4,7 @@
   </div>
 
   <div>
-    <%= simple_form_for (@booking) do |f| %>
+    <%= simple_form_for [@bike, @booking] do |f| %>
     <%= f.input :comment %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
@@ -14,5 +14,6 @@
 
 </div>
 
+<%# Flatpickr %>
 <%# A modifier : formater la date avec un Date.new?  %>
 <%# Pas encore liée à un vélo specifique %>
