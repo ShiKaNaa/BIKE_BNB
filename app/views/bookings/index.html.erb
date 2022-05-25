@@ -5,15 +5,28 @@
 
   <% if @bookings != [] %>
 
-
+    <%# booking locataire %>
     <% @bookings.each do |booking| %>
       <div class="card">
         <%= booking.comment %>
         <%= booking.start_date %>
         <%= booking.end_date %>
         <%= booking.status %>
+      </div>
     <% end %>
-    </div>
+
+    <%# booking propriétaire %>
+    <% @my_bookings.each do |booking| %>
+      <div class="card">
+        <%= booking.comment %>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+        <%= booking.status %>
+          <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
+          <%= link_to "Decline", decline_booking_path(booking), method: :patch %>
+      </div>
+    <% end %>
+
 
   <% else %>
     <p>You don't have booking</p>
