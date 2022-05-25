@@ -50,3 +50,20 @@ Bike.create([{
   price: 10,
   user: lucie
 }])
+
+Booking.create([{
+  comment: "Nice bike, can I borrow it for a ride? ",
+  start_date: 1,
+  end_date: 5,
+  status: "pending",
+  bike_id: 1,
+  user_id: lucie.id
+},
+{
+  comment: "Awesome bike, lend it to me instead! ",
+  start_date: 2,
+  end_date: 8,
+  status: "pending",
+  bike_id: 1,
+  user_id: lucie.id,
+}])
