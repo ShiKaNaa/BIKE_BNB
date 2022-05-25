@@ -6,8 +6,15 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-    def create?
-      return true
-    end
+  def create?
+    return true
+  end
 
+  def accept?
+    record.user == user
+  end
+
+  def decline?
+    record.user == user
+  end
 end

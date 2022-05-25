@@ -2,6 +2,8 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = current_user.bookings
+    @my_bookings = current_user.my_bookings
   end
 
   def new
@@ -18,8 +20,7 @@ class BookingsController < ApplicationController
     @booking.bike = @bike
     @booking.user = @user
     @booking.status = false
-
-    if @booking.save!
+    if @booking.save
       redirect_to bookings_path, notice: 'Your request has been sent, please wait for the confirmation'
     else
       render :new
@@ -27,12 +28,23 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def update
-    # Accept ou Decline to change status
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = true
+    @booking.save!
+    redirect_to bookings_path
+    authorize @booking
   end
 
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = false
+    @booking.save!
+    redirect_to bookings_path
+    authorize @booking
+  end
 
-private
+  private
 
   def booking_params
     params.require(:booking).permit(:user_id, :bike_id, :comment, :start_date, :end_date, :status)
