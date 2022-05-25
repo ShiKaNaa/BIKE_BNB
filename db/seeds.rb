@@ -57,14 +57,14 @@ Booking.create!([{
   start_date: 1,
   end_date: 5,
   status: "pending",
-  bike_id: 2,
-  user_id: lucie.id
+  bike: Bike.first,
+  user_id: emma.id
 },
 {
   comment: "Awesome bike, lend it to me instead! ",
   start_date: 2,
   end_date: 8,
   status: "pending",
-  bike_id: 1,
+  bike: Bike.last,
   user_id: emma.id
 }])
