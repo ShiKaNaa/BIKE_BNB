@@ -1,6 +1,6 @@
-<h1>All bikes</h1>
-
 <div class="container">
+
+  <h1>All bikes</h1>
 
   <div class="cards row">
     <% @bikes.each do |bike|  %>
@@ -17,4 +17,6 @@
     </div>
     <% end %>
   </div>
+
+  <%=  link_to "Add a new bike advert", new_bike_path, class: "btn btn-primary" %>
 </div>

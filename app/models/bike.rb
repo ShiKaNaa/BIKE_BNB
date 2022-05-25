@@ -1,9 +1,12 @@
 class Bike < ApplicationRecord
   belongs_to :user
 
-  validates :size, inclusion: { in: %w(adult child) }
+  SIZE = ["adult", "child"]
+  CATEGORY = ["mountain", "electric", "road", "city"]
+
+  validates :size, inclusion: { in: SIZE }
   validates :name, presence: true
   validates :price, presence: true
   validates :img_url, presence: true
-  validates :category, inclusion: { in: %w(mountain electric road city) }
+  validates :category, inclusion: { in: CATEGORY }
 end
