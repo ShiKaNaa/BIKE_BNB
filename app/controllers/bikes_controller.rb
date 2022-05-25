@@ -35,7 +35,10 @@ class BikesController < ApplicationController
   end
 
   def update
-
+    @bike = Bike.find(params[:id])
+    @bike.update(bike_params)
+    redirect_to my_bikes_path
+    authorize @bike
   end
 
   def destroy
