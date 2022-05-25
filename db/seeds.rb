@@ -7,18 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Bike.destroy_all
 User.destroy_all
+Booking.destroy_all
 
-lucie = User.create(
+lucie = User.create!(
   email:'lucie@gmail.com',
   password: 'azerty'
 )
 
-emma = User.create(
+emma = User.create!(
   email: 'emma@gmail.com',
   password: 'azerty'
 )
 
-Bike.create([{
+Bike.create!([{
   name: 'Little pink bike',
   img_url: 'https://m.media-amazon.com/images/I/81E3DzhaKiL._AC_SL1500_.jpg',
   size: 'child',
@@ -51,12 +52,12 @@ Bike.create([{
   user: lucie
 }])
 
-Booking.create([{
+Booking.create!([{
   comment: "Nice bike, can I borrow it for a ride? ",
   start_date: 1,
   end_date: 5,
   status: "pending",
-  bike_id: 1,
+  bike_id: 2,
   user_id: lucie.id
 },
 {
@@ -65,5 +66,5 @@ Booking.create([{
   end_date: 8,
   status: "pending",
   bike_id: 1,
-  user_id: lucie.id,
+  user_id: emma.id
 }])
