@@ -1,6 +1,10 @@
 <div class="container d-flex justify-content-center">
   <%= @bike.name %>
-  <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if @bike.photo.attached? %>
+        <%= cl_image_tag @bike.photo.key, class: "card-img-top"%>
+  <% else %>
+    <img src="<%= @bike.img_url %>" class="card-img-top" alt="...">
+  <% end %>
   <%= @bike.category %>
   <%= @bike.price %>
   <% if policy(@bike).destroy? %>
