@@ -1,4 +1,4 @@
-<div class ='container'>
+<div class ='container' >
 
   <h1 class="row justify-content-center padding-6">My Bookings</h1>
   <h2 class="row justify-content-center padding-6">This is where you can see and updates your bookings. Have a look!</h2>
@@ -22,13 +22,18 @@
 
     <%# booking propriétaire %>
     <% @my_bookings.each do |booking| %>
-    <div class="card col-4" style="width: 350px;">
+    <%# data controller method#disappear + target à faire à la suite du cours du 27/05, peut-etre renvoyer à l'id du bike %>
+    <div class="card col-4" style="width: 350px;" data-controller="remove-button" data-remove-button-target="removed">
       <div class="card-body">
         <h5 class="card-title"><%= booking.comment %></h5>
         <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %></h6>
         <p class="card-text">Status : <%= booking.status %></p>
+        <%# data action de  #disappear %>
+        <div class="test" data-action="click->remove-button#disappear">
           <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "card-link" %>
           <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "card-link" %>
+        </div>
+
       </div>
       </div>
     <% end %>
