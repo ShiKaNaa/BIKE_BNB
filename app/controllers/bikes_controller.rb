@@ -1,6 +1,10 @@
 class BikesController < ApplicationController
   def index
-    @bikes = policy_scope(Bike).order(created_at: :desc)
+    if params[:query].present?
+      @bikes = policy_scope(Bike.where("city ILIKE ?", "%#{params[:query]}%")).order(created_at: :desc)
+    else
+      @bikes = policy_scope(Bike).order(created_at: :desc)
+    end
   end
 
   def my_bikes
@@ -51,6 +55,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:user_id, :name, :img_url, :size, :category, :available, :price, :photo)
+    params.require(:bike).permit(:user_id, :name, :img_url, :size, :category, :available, :price, :photo, :city)
   end
 end
