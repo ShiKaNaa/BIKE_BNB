@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status = true
+    @booking.status = "Accepted ✔️"
     @booking.save!
     redirect_to bookings_path
     authorize @booking
@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
 
   def decline
     @booking = Booking.find(params[:id])
-    @booking.status = false
+    @booking.status = "Declined 😔"
     @booking.save!
     redirect_to bookings_path
     authorize @booking
