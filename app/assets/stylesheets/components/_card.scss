@@ -33,7 +33,7 @@
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  // align-items: flex-end;
   position: relative;
   text-align: justify;
 }
@@ -57,4 +57,20 @@ margin: 0;
 .container{
   margin: 0 auto;
   width: auto;
+}
+
+.cards-loc {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 18px;
+}
+
+.cards-owner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 18px;
+}
+
+.card-body {
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
 }
