@@ -25,6 +25,7 @@ Bike.create!([{
   size: 'child',
   category: 'city',
   price: 5,
+  city: "Lille",
   user: lucie
 },
 {
@@ -33,6 +34,7 @@ Bike.create!([{
   size: 'adult',
   category: 'mountain',
   price: 15,
+  city: "Lyon",
   user: emma
 },
 {
@@ -41,6 +43,7 @@ Bike.create!([{
   size: 'adult',
   category: 'electric',
   price: 30,
+  city: "Lille",
   user: lucie
 },
 {
@@ -49,6 +52,7 @@ Bike.create!([{
   size: 'adult',
   category: 'road',
   price: 10,
+  city: "Lyon",
   user: lucie
 }])
 

@@ -11,6 +11,7 @@ class Bike < ApplicationRecord
   validates :size, inclusion: { in: SIZE }
   validates :name, presence: true
   validates :price, presence: true
+  validates :city, presence: true
 
   # j'ai mis en commentaire la ligne du dessous pour test cloudinary
   # validates :img_url, presence: true
