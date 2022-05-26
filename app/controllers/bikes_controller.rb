@@ -1,4 +1,6 @@
 class BikesController < ApplicationController
+  require 'date'
+
   def index
     if params[:query].present?
       @bikes = policy_scope(Bike.where("city ILIKE ?", "%#{params[:query]}%")).order(created_at: :desc)
@@ -10,6 +12,19 @@ class BikesController < ApplicationController
   def my_bikes
     @my_bikes = Bike.where(user_id: current_user.id)
     authorize @my_bikes
+    @my_bikes.each do |bike|
+      bike.bookings.each do |booking|
+        @start_date = booking.start_date
+        @end_date = booking.end_date
+        @status_booking = booking.status
+      end
+    end
+    @all_dates = (@start_date..@end_date).map { |date| date.strftime("%a %d %b %Y") }
+    @someday = Date.today
+    @my_bikes.each do |bike|
+      @available = bike.available == false
+      return @available if (@someday == @all_dates) && (@status_booking == "Accepted ✅")
+    end
   end
 
   def show
