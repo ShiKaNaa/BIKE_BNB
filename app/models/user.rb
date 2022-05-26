@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :firstname, :lastname, presence: true
 
   def my_bookings
     Booking.joins(:bike).where("bikes.user_id=#{id}")
