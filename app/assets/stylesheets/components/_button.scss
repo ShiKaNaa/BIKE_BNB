@@ -26,3 +26,16 @@
   opacity: 1;
   transition: opacity 1s ease;
 }
+
+.button-home {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 60px;
+}
+
+@media (max-width: 1000px) {
+ .button-home {
+    display: flow-root;
+    margin-bottom: 20px;
+ }
+}
