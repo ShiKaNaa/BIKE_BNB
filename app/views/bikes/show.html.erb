@@ -1,19 +1,23 @@
-<div class="container" width="300px">
+<div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-8">
+    <div class="card-show">
       <h2><%= @bike.name %></h2>
       <% if @bike.photo.attached? %>
-            <%= cl_image_tag @bike.photo.key, class: "card-img-top"%>
+            <%= cl_image_tag @bike.photo.key%>
       <% else %>
-        <img src="<%= @bike.img_url %>" class="card-img-top" width ="250px">
+        <img src="<%= @bike.img_url %>">
       <% end %>
-      <h3>Category : <%= @bike.category %></h3>
-      <h3>Price: <%= @bike.price %>€</h3>
-      <% if policy(@bike).destroy? %>
-      <h4><%= link_to "Delete", bikes_path %></h4>
-      <% end %>
-      <h4><%= link_to "Book this bike", new_bike_booking_path(@bike) %></h4>
-      <h4><%= link_to "Edit", bikes_path %></h4>
+      <div>
+        <h3><%= @bike.category %> Bike</h3>
+        <h3>Price: <%= @bike.price %>€ per day</h3>
+        <h3><%= @bike.size %> Size</h3>
+        <h4>Owner: <%= @bike.user.firstname %> <%=  @bike.user.lastname %></h4>
+        <% if policy(@bike).destroy? %>
+        <h4><%= link_to "Delete", bikes_path %></h4>
+        <% end %>
+        <h4><%= link_to "Book this bike", new_bike_booking_path(@bike) %></h4>
+        <h4><%= link_to "Edit", bikes_path %></h4>
+      </div>
     </div>
   </div>
 </div>
