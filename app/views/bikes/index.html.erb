@@ -1,25 +1,27 @@
 <div class="container">
 
-  <h1>All bikes</h1>
+  <h1 class="row justify-content-center padding-6">These are all the bikes you can book :</h1>
 
-  <div class="cards row">
+  <div class="cards row justify-content-around">
     <% @bikes.each do |bike|  %>
     <%# bootstrap card %>
-    <div class="card m-3" style="width: 18rem;">
+    <div class="card-index col-4" style="width: 18rem;">
       <% if bike.photo.attached? %>
-        <%= cl_image_tag bike.photo.key, class: "card-img-top"%>
+        <%= cl_image_tag bike.photo.key, class: "card-index-img"%>
       <% else %>
-        <img src="<%= bike.img_url %>" class="card-img-top" alt="...">
+        <img src="<%= bike.img_url %>" class="card-index-img" alt="...">
       <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= bike.name %></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <%# faire un path_to show/id %>
-        <%=  link_to "See this bikes", bike_path(bike.id), class: "btn btn-primary" %>
+      <h5 class="card-index-title"><%= bike.name %></h5>
+      <div class="card-index-info">
+        <h6 class="card-index-price"><%= bike.price %> €/per day </h6>
+        <h6 class="card-index-type"><%= bike.category %></h5>
       </div>
+      <%# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> %>
+      <%# faire un path_to show/id %>
+      <%=  link_to "View details", bike_path(bike.id), class: "btn-card-index" %>
     </div>
     <% end %>
   </div>
 
-  <%=  link_to "Add a new bike advert", new_bike_path, class: "btn btn-primary" %>
+  <%=  link_to "Add a new bike advert", new_bike_path, class: "btn-card-index" %>
 </div>
