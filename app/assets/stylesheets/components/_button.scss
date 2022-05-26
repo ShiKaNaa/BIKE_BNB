@@ -39,3 +39,22 @@
     margin-bottom: 20px;
  }
 }
+
+.btn-card-index {
+  position: relative;
+  text-decoration: none;
+  color: #3f463f;
+  overflow: hidden;
+  background: #E7D1C8;
+  box-shadow: 0 8px 20px -6px rgba(black, .3);
+  border-radius: 8px;
+  padding: 10px;
+  bottom: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-card-index:hover {
+  color: #4b804b
+}
