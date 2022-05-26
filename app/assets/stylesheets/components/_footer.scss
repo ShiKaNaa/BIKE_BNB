@@ -1,0 +1,28 @@
+.footer {
+  background: $beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  margin-top: 20px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a {
+  color: $forest-green;
+  opacity: 0.3;
+  text-decoration: none;
+  font-size: 28px;
+  padding: 0px 10px;
+  margin: 5px;
+}
+
+.footer-links a:hover {
+  color: $dark-orange;
+}
