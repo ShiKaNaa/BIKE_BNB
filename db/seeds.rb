@@ -111,24 +111,24 @@ Bike.create!([{
 
 Booking.create!([{
   comment: "Nice bike, can I borrow it for a ride? ",
-  start_date: 1,
-  end_date: 5,
+  start_date: Time.now,
+  end_date: Time.new(2022, 6, 6),
   status: "pending",
   bike: Bike.first,
   user_id: emma.id
 },
 {
   comment: "Awesome bike, lend it to me instead! ",
-  start_date: 2,
-  end_date: 8,
+  start_date: Time.now,
+  end_date: Time.new(2022, 6, 6),
   status: "pending",
   bike: Bike.last,
   user_id: emma.id
 },
 {
   comment: "I'd love to borrow it for a ride with my friends. Is it available?",
-  start_date: 2,
-  end_date: 8,
+  start_date: Time.now,
+  end_date: Time.new(2022, 6, 6),
   status: "pending",
   bike: Bike.last,
   user_id: raphael.id
