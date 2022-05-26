@@ -15,9 +15,7 @@
   <body>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://images.emojiterra.com/mozilla/512px/1f6b2.png" />
-    </a>
+    <%=  link_to image_tag("https://images.emojiterra.com/mozilla/512px/1f6b2.png"), root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-          <%=  link_to "Home", root_path, class: "nav-link" %>
+          <%=  link_to "Home", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users-thumbnail.png" />
@@ -40,10 +38,12 @@
   </div>
 </div>
 
+  <%# This div is fort the footer position %>
+  <div class="container-min-height">
     <%= yield %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
+  </div>
 
   <div class="footer">
     <div class="footer-links">

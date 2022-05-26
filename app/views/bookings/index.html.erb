@@ -12,18 +12,20 @@
      <div class="card col-4" style="width: 350px;">
       <div class="card-body">
         <h5 class="card-title"><%= booking.comment %></h5>
-         <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date %> to <%= booking.end_date %></h6>
+         <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %></h6>
         <p class="card-text">Status : <%= booking.status %></p>
       </div>
        </div>
     <% end %>
+
+    <hr> <%# J'ai mis ca pour voir les deux catégories, a retirer par la suite %>
 
     <%# booking propriétaire %>
     <% @my_bookings.each do |booking| %>
     <div class="card col-4" style="width: 350px;">
       <div class="card-body">
         <h5 class="card-title"><%= booking.comment %></h5>
-        <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date %> to <%= booking.end_date %></h6>
+        <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %></h6>
         <p class="card-text">Status : <%= booking.status %></p>
           <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "card-link" %>
           <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "card-link" %>

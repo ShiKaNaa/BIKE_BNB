@@ -9,22 +9,21 @@
 <h3 class="row justify-content-center">Your journey begins here....</h3>
 <%# # <p>Find me in app/views/pages/home.html.erb</p> %>
 
-<div class="container d-flex justify-content-center gap-3 margin-top-6">
-
   <div class="container">
-    <%= form_tag bikes_path, method: :get do %>
+    <%= form_tag bikes_path, method: :get, class: "search" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Enter a city and find a bike"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-gradient btn-lg" %>
     <% end %>
-</div>
-  <%= link_to "Bike rental", bikes_path, class: "btn btn-gradient btn-lg" %>
 
-  <%= link_to "My bookings", bookings_path, class: "btn btn-flat btn-lg" %>
+    <div class="button-home">
+      <%= link_to "Bike rental", bikes_path, class: "btn btn-gradient btn-lg button-home" %>
 
-  <%= link_to "My bikes", my_bikes_path, class: "btn btn-warning btn-lg" %>
+      <%= link_to "My bookings", bookings_path, class: "btn btn-gradient btn-lg button-home" %>
 
-</div>
+      <%= link_to "My bikes", my_bikes_path, class: "btn btn-gradient btn-lg button-home" %>
+    </div>
+  </div>

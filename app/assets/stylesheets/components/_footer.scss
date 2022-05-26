@@ -6,7 +6,13 @@
   height: 70px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  margin-top: 20px;
+  margin-top: 30px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.container-min-height{
+  min-height: 78vh;
 }
 
 .footer-links {
