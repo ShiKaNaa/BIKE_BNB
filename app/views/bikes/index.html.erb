@@ -15,6 +15,7 @@
       <h5 class="card-index-title"><%= bike.name %></h5>
       <div class="card-index-info">
         <h6 class="card-index-price"><%= bike.price %> €/per day </h6>
+        <h6 class="card-index-type"><%= bike.available ? "Available 🟢" : "Booked 🔴" %></h6>
         <h6 class="card-index-type"><%= bike.category.capitalize %></h6>
       </div>
       <%=  link_to "View details", bike_path(bike.id), class: "btn-card-index" %>
