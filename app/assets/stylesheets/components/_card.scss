@@ -48,11 +48,12 @@ margin: 0;
 
 .card-show {
   height: 500px;
+  width: 1000px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   margin: 20px;
+  position: relative;
 
   img {
     height: 100%;
@@ -63,13 +64,24 @@ margin: 0;
   }
 
   h2 {
-    text-align: center;
-    padding: 4px;
-    width: auto;
+
   }
 
+  .card-info {
+    padding: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    position: relative;
+    text-align: justify;
+    width: 600px;
+  }
 
-
-
+  #title {
+    text-align: center;
+    padding: 4px;
+    width: 100%;
+    position: relative;
+  }
 
 }
