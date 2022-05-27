@@ -89,13 +89,16 @@ margin: 0;
   }
 
   .text {
-    padding: 1px;
+    padding: 10px;
     justify-content: flex-start;
+    margin: 60px;
   }
 
   .links {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    padding: 24px;
 
     a {
       color: black;
