@@ -2,10 +2,10 @@
 
   <h1 class="row justify-content-center title-page-all-bikes">These are all the bikes you can book :</h1>
 
-  <div class="cards row justify-content-around">
+  <div class="cards">
     <% @bikes.each do |bike|  %>
     <%# bootstrap card %>
-    <div class="card-index col-4" style="width: 18rem;">
+    <div class="card-index col-4" style="width: 20rem;">
       <% if bike.photo.attached? %>
         <%= cl_image_tag bike.photo.key, class: "card-index-img"%>
       <% else %>

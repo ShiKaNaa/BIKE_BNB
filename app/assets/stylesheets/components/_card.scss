@@ -1,18 +1,26 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
 .card-index {
   overflow: hidden;
   position: relative;
   background: rgb(252, 250, 250);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 300px;
-  height: 350px;
-  padding: 4px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+  // width: 300px;
+  height: 370px;
+  padding: 30px 10px 10px 10px;
   margin: 10px;
+  border-radius: 8px;
 }
 
 .card-index-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  padding-bottom: 10px;
 }
 
 .card-index h6 {
@@ -24,7 +32,7 @@
 .card-index-info {
   padding: 8px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
   position: relative;
   text-align: justify;
