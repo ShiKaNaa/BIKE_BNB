@@ -12,18 +12,26 @@ class BikesController < ApplicationController
   def my_bikes
     @my_bikes = Bike.where(user_id: current_user.id)
     authorize @my_bikes
+    # on va récupérer les start_date, end_date et status de chaque bike
     @my_bikes.each do |bike|
+      # on itère car plusieurs bookings possible sur un bike
       bike.bookings.each do |booking|
-        @start_date = booking.start_date
-        @end_date = booking.end_date
-        @status_booking = booking.status
+        # on verifie que un bike a un booking sinon ne peut pas afficher
+        if booking.nil?
+          @available = true
+        else
+          @start_date = booking.start_date
+          @end_date = booking.end_date
+          @status_booking = booking.status
+          @all_dates = (@start_date..@end_date).map { |date| date.strftime("%a %d %b %Y") }
+          @someday = Date.today
+          # j'ai changé le nom de |bike| a |bike_status| pour éviter doublon
+          @available_status = @my_bikes.each do |bike_status|
+            @available = bike_status.available == false
+            return @available if (@someday == @all_dates) && (@status_booking == "Accepted ✅")
+          end
+        end
       end
-    end
-    @all_dates = (@start_date..@end_date).map { |date| date.strftime("%a %d %b %Y") }
-    @someday = Date.today
-    @available_status = @my_bikes.each do |bike|
-      @available = bike.available == false
-      return @available if (@someday == @all_dates) && (@status_booking == "Accepted ✅")
     end
   end
 
@@ -63,7 +71,7 @@ class BikesController < ApplicationController
   def destroy
     @bike = Bike.find(params[:id])
     authorize @bike
-    @bike.destroy
+    @bike.destroy!
     redirect_to my_bikes_path, notice: 'Bike was successfully destroyed.'
   end
 
