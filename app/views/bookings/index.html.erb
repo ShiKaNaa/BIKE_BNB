@@ -30,15 +30,17 @@
         <%# booking propriétaire %>
         <% @my_bookings.each do |booking| %>
         <%# data controller method#disappear + target à faire à la suite du cours du 27/05, peut-etre renvoyer à l'id du bike %>
-        <div class="card card-body" data-controller="remove-button" data-remove-button-target="removed">
+        <div class="card card-body" >
           <h5 class="card-title"><%= booking.comment %></h5>
           <h6 class="card-subtitle mb-2 text-muted">From <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %></h6>
           <p class="card-text">Status : <%= booking.status %></p>
           <%# data action de  #disappear %>
-          <div class="test btn-booking" data-action="click->remove-button#disappear">
-            <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "card-link" %>
-            <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "card-link" %>
+          <% if booking.status == "Pending 🕐" %>
+          <div class="test btn-booking" data-controller="remove-button" data-action="click->remove-button#disappear" data-remove-button-target="removed">
+            <%= link_to "Accept", accept_booking_path(booking),remote: true, method: :patch, class: "card-link" %>
+            <%= link_to "Decline", decline_booking_path(booking),remote: true, method: :patch, class: "card-link" %>
           </div>
+          <% end %>
         </div>
         <% end %>
       </div>
