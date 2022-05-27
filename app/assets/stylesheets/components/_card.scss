@@ -9,18 +9,17 @@
   position: relative;
   background: rgb(252, 250, 250);
   box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-  // width: 300px;
-  height: 370px;
+  height: 400px;
   padding: 30px 10px 10px 10px;
   margin: 10px;
+  border-radius: 8px;
 
   img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 3px;
   }
-
-  border-radius: 8px;
 }
 
 
@@ -165,3 +164,34 @@ margin: 0;
     display: flex;
   }
  }
+
+.card-my-bikes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  justify-items: center;
+  padding-top: 20px;
+}
+
+.card-bikes {
+  background-color: $white;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+  height: 32rem;
+  padding: 30px 10px 10px 10px;
+
+  .card-img-top{
+    height: 50%;
+    width: 100%;
+    object-fit: fill;
+    position: relative;
+    left: 0;
+    padding-bottom: 10px;
+  }
+}
+
+// @media (max-width: 780px) {
+//   .card-body {
+//     display: flex;
+//     width: 200px;
+//   }
