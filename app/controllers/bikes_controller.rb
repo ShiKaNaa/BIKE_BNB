@@ -21,7 +21,7 @@ class BikesController < ApplicationController
     end
     @all_dates = (@start_date..@end_date).map { |date| date.strftime("%a %d %b %Y") }
     @someday = Date.today
-    @my_bikes.each do |bike|
+    @available_status = @my_bikes.each do |bike|
       @available = bike.available == false
       return @available if (@someday == @all_dates) && (@status_booking == "Accepted ✅")
     end
