@@ -57,7 +57,6 @@ margin: 0;
 
 .card-show {
   height: 500px;
-  width: 1000px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -66,9 +65,10 @@ margin: 0;
 
   img {
     height: 100%;
-    width: 400px;
-    object-fit: fill;
+    width: 550px;
+    object-fit: contain;
     position: relative;
+    padding: 0 10px;
     left: 0;
   }
 
@@ -77,40 +77,26 @@ margin: 0;
     font-weight: bolder;
   }
 
-  .card-info {
-    // padding: 40px;
-    // // display: flex;
-    // // justify-content: space-between;
-    // align-items: center;
-    // position: relative;
-    // text-align: justify;
-    // width: 600px;
-  }
-
   .text {
-    padding: 10px;
+    padding: 30px;
+    border-left: 1px solid #768c76;
     justify-content: flex-start;
-    margin: 60px;
+    margin: 10px 50px 0 50px;
   }
 
   .links {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 24px;
-
-    a {
-      color: black;
-    }
+    padding: 16px 24px;
   }
 
   #title {
     text-align: center;
-    padding: 16px;
-    border-bottom: 1px solid #cbb0b0;
-    width: 100%;
+    padding: 30px;
+    width: 95%;
     position: relative;
-    margin: 2px 10%;
+    margin: 2px 4%;
   }
 
 }
