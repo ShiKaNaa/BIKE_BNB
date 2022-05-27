@@ -20,11 +20,11 @@
       <div class="links">
 
         <% if @bike.user != current_user %>
-          <h4><%= link_to "Book", new_bike_booking_path(@bike) %></h4>
+          <h4><%= link_to "Book", new_bike_booking_path(@bike), class: "card-link" %></h4>
         <% end %>
-          <h4><%= link_to "Edit", bikes_path %></h4>
+          <h4><%= link_to "Edit", bikes_path, class: "card-link" %></h4>
         <% if policy(@bike).destroy? %>
-          <h4><%= link_to "Delete", bikes_path %></h4>
+          <h4><%= link_to "Delete", bikes_path, class: "card-link" %></h4>
 
         <% end %>
       </div>
