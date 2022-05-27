@@ -11,7 +11,7 @@
           <% end %>
           <div class="card-body-my_bikes">
             <h5 class="card-title"><%= my_bike.name %> <hr></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the  bulk of the card's content. <hr> Status : <%= @available ? "Available 🟢" : "Booked 🔴" %></p>
+            <p class="card-text">Some quick example text to build on the card title and make up the  bulk of the card's content. <hr> Status : <%= my_bike.available ? "Available 🟢" : "Booked 🔴" %></p>
             <%= link_to "See this bike", bike_path(my_bike.id), class: "card-link" %>
             <%= link_to "Update", edit_bike_path(my_bike.id), class: "card-link" %>
             <%= link_to 'Destroy', my_bike, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-link" %>

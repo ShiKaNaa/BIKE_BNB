@@ -12,23 +12,23 @@ class BikesController < ApplicationController
   def my_bikes
     @my_bikes = Bike.where(user_id: current_user.id)
     authorize @my_bikes
+
     # on va récupérer les start_date, end_date et status de chaque bike
     @my_bikes.each do |bike|
-      # on itère car plusieurs bookings possible sur un bike
-      bike.bookings.each do |booking|
-        # on verifie que un bike a un booking sinon ne peut pas afficher
-        if booking.nil?
-          @available = true
-        else
+      if bike.bookings.count < 1
+        bike.available = true
+      else
+        bike.bookings.each do |booking|
+          # on verifie que un bike a un booking sinon ne peut pas afficher
           @start_date = booking.start_date
           @end_date = booking.end_date
           @status_booking = booking.status
-          @all_dates = (@start_date..@end_date).map { |date| date.strftime("%a %d %b %Y") }
-          @someday = Date.today
-          # j'ai changé le nom de |bike| a |bike_status| pour éviter doublon
-          @available_status = @my_bikes.each do |bike_status|
-            @available = bike_status.available == false
-            return @available if (@someday == @all_dates) && (@status_booking == "Accepted ✅")
+          @all_dates = (@start_date..@end_date).map { |date| date.strftime("%a %d %b %Y").to_s }
+          @someday = Date.today.strftime("%a %d %b %Y").to_s
+
+          if @all_dates.include?(@someday) && (@status_booking == "Accepted ✅")
+            bike.available = false
+            bike.save
           end
         end
       end
@@ -81,3 +81,22 @@ class BikesController < ApplicationController
     params.require(:bike).permit(:user_id, :name, :img_url, :size, :category, :available, :price, :photo, :city)
   end
 end
+
+
+          # bike.available = false if (@someday == @all_dates) && (@status_booking == "Accepted ✅")
+
+
+        # on itère car plusieurs bookings possible sur un bike
+        # bike.bookings.each do |booking|
+        #   # on verifie que un bike a un booking sinon ne peut pas afficher
+        #   @start_date = booking.start_date
+        #   @end_date = booking.end_date
+        #   @status_booking = booking.status
+        #   @all_dates = (@start_date..@end_date).map { |date| date.strftime("%a %d %b %Y") }
+        #   @someday = Date.today
+        #   # j'ai changé le nom de |bike| a |bike_status| pour éviter doublon
+        #   @my_bikes.each do |bike_status|
+        #     @available = bike_status.available == false
+        #     return @available if (@someday == @all_dates) && (@status_booking == "Accepted ✅")
+        #   end
+        # end

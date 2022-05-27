@@ -64,6 +64,15 @@ Bike.create!([{
   user: emma
 },
 {
+  name: 'Blue Mountain Bike',
+  img_url: 'https://www.picclickimg.com/d/l400/pict/304480950325_/V%C3%A9lo-de-montagne-VTT-adulte-full-suspendu-Kona.jpg',
+  size: 'adult',
+  category: 'mountain',
+  price: 15,
+  city: "Lyon",
+  user: emma
+},
+{
   name: 'Electric Dutch Bike',
   img_url: 'https://cdn.lemond.com/images/pages/dutch/Dutch_Front_3Quarter.webp',
   size: 'adult',
