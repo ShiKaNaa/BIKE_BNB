@@ -1,23 +1,22 @@
 <div class="container">
-  <h1>Je suis dans my_bikes</h1>
 
   <div class="cards row">
     <% @my_bikes.each do |my_bike|  %>
-    <%# bootstrap card %>
-    <div class="card m-3" style="width: 18rem;">
-      <% if my_bike.photo.attached? %>
-        <%= cl_image_tag my_bike.photo.key, class: "card-img-top"%>
-      <% else %>
-        <img src="<%= my_bike.img_url %>" class="card-img-top" alt="...">
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= my_bike.name %> <hr></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the  bulk of the card's content. <hr> Status : <%= my_bike.available ? "Available ✔️" : "Booked ✔️" %></p>
-        <%=  link_to "See this bike", bike_path(my_bike.id), class: "btn btn-primary" %>
-        <%=  link_to "Update", edit_bike_path(my_bike.id), class: "btn btn-primary" %>
-        <%= link_to 'Destroy', my_bike, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%# bootstrap card %>
+      <div class="card m-3" style="width: 18rem;">
+        <% if my_bike.photo.attached? %>
+          <%= cl_image_tag my_bike.photo.key, class: "card-img-top"%>
+        <% else %>
+          <img src="<%= my_bike.img_url %>" class="card-img-top" alt="...">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= my_bike.name %> <hr></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the  bulk of the card's content. <hr> Status : <%= @available ? "Available 🟢" : "Booked 🔴" %></p>
+          <%= link_to "See this bike", bike_path(my_bike.id), class: "btn btn-primary" %>
+          <%= link_to "Update", edit_bike_path(my_bike.id), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', my_bike, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 

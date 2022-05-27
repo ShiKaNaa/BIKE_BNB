@@ -1,3 +1,8 @@
+.container-bike {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
@@ -23,8 +28,8 @@
 
 .btn-gradient:hover {
   color: white;
-  opacity: 1;
-  transition: opacity 1s ease;
+  opacity: 0.8;
+  transition: opacity 0.7s ease;
 }
 
 .button-home {
@@ -41,20 +46,61 @@
 }
 
 .btn-card-index {
-  position: relative;
+  // position: relative;
   text-decoration: none;
-  color: #3f463f;
+  color: $white;
   overflow: hidden;
-  background: #E7D1C8;
-  box-shadow: 0 8px 20px -6px rgba(black, .3);
+  background: $forest-green;
+  opacity: 0.5;
+  box-shadow: 0 8px 20px -6px rgba(black, .2);
   border-radius: 8px;
   padding: 10px;
   bottom: -10px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover{
+    background: $forest-green;
+    transition: opacity 0.3s ease;
+    opacity: 0.7;
+    color: $white;
+  }
 }
 
-.btn-card-index:hover {
-  color: #344d34
+.center-new-bike {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+
+  .new-bike {
+    width: 290px;
+    background: $forest-green;
+    opacity: 0.9;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
+
+.card-link {
+  text-decoration: none;
+  color: $white;
+  background-color: $forest-green;
+  opacity: 0.5;
+  border-radius: 8px;
+  padding: 10px;
+
+  &:hover {
+    opacity: 0.8;
+    color: $white;
+    transition: opacity 0.3s ease;
+  }
+
+}
+
+
+// .btn-card-index:hover {
+//   color: $white;
+// }

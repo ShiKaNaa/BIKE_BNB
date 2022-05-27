@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.bike = @bike
     @booking.user = @user
-    @booking.status = false
+    @booking.status = "Pending 🕐"
     if @booking.save
       redirect_to bookings_path, notice: 'Your request has been sent, please wait for the confirmation'
     else
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status = "Accepted ✔️"
+    @booking.status = "Accepted ✅"
     @booking.save!
     redirect_to bookings_path
     authorize @booking
